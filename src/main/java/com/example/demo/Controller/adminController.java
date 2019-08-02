@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.Service.AdminService;
@@ -17,9 +18,12 @@ public class adminController {
 	
 	@Autowired
 	private AdminService adminService;
-	@GetMapping("/admin")
-	public @ResponseBody String admintest() {
+	@GetMapping("/admin/{pageNumber}/{pageSize}")
+	public @ResponseBody String admintest(
+			@PathVariable(name="pageNumber",required=false) int pageNumber,
+			@PathVariable(name="pageSize",required=false) int pageSize
+			) {
 		
-		return adminService.getAll().toString();
+		return adminService.getAll(pageNumber,pageSize).toString();
 	}
 }

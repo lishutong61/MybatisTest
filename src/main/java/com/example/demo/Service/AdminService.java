@@ -1,5 +1,8 @@
 package com.example.demo.Service;
 
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +19,9 @@ public class AdminService {
 	@Autowired
 	private AdminDao adminDao;
 	
-	public User getAll() {
-		return adminDao.selectall();
+	public List<User> getAll(int pageNumber,int pageSize) {
+		int a=(pageNumber-1)*pageSize;
+		
+		return adminDao.selectall(new RowBounds(a,pageSize));
 	}
 }

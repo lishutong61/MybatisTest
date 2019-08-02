@@ -1,5 +1,8 @@
 package com.example.demo.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.User;
@@ -11,5 +14,6 @@ import com.example.demo.entity.User;
 */
 @Repository
 public interface AdminDao {
-	User selectall();
+	
+	List<User> selectall(RowBounds rowBounds);
 }
