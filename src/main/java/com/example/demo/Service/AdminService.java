@@ -22,6 +22,7 @@ public class AdminService {
 	public List<User> getAll(int pageNumber,int pageSize) {
 		int a=(pageNumber-1)*pageSize;
 		
-		return adminDao.selectall(new RowBounds(a,pageSize));
+		//return adminDao.selectall(new RowBounds(a,pageSize));
+		return adminDao.selectall();
 	}
 }

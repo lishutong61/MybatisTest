@@ -16,4 +16,6 @@ import com.example.demo.entity.User;
 public interface AdminDao {
 	
 	List<User> selectall(RowBounds rowBounds);
+	
+	List<User> selectall();
 }
